@@ -23,13 +23,10 @@ namespace CaProjetoMenu
                 Write(new string('═', 80)); // char 205
                 SetCursorPosition(30, 3); Write("[1] Conta letras");
                 SetCursorPosition(30, 4); Write("[2] Zenit Polar");
-                SetCursorPosition(30, 5); Write("[3] Letreiro");
-                SetCursorPosition(30, 6); Write("[4] Desliza letra");
-                SetCursorPosition(30, 7); Write("[5] Acerta nomes");
-                SetCursorPosition(30, 8); Write("[6] Fim");
-                SetCursorPosition(0, 10);
+                SetCursorPosition(30, 5); Write("[3] Fim");
+                SetCursorPosition(0, 7);
                 Write(new string('═', 80)); // char 205
-                SetCursorPosition(30, 12);
+                SetCursorPosition(30, 9);
                 Write("Informe sua opção: ");
 
                 // 2) Recebendo a escolha do usuário
@@ -48,15 +45,6 @@ namespace CaProjetoMenu
                         ZenitPolar();
                         break;
                     case 3:
-                        Letreiro();
-                        break;
-                    case 4:
-                        DeslizaLetra();
-                        break;
-                    case 5:
-                        AcertaNomes();
-                        break;
-                    case 6:
                         Clear();
                         WriteLine("Saindo...");
                         Thread.Sleep(100);
@@ -244,40 +232,6 @@ namespace CaProjetoMenu
                 resultado += novoCaractere;
             }
             return resultado;
-        }
-
-        static void Letreiro()
-        {
-            Clear();  // Limpa a tela antes de exibir o letreiro
-            Write("Digite a frase para o letreiro: ");
-            string frase = ReadLine();
-
-            string espacoEmBranco = new string(' ', 30);
-            string textoCompleto = espacoEmBranco + frase + espacoEmBranco;
-
-            for (int i = 0; i < textoCompleto.Length - 30; i++)
-            {
-                string parteVisivel = textoCompleto.Substring(i, 30);
-                SetCursorPosition(30, 2);  // Define a posição base do texto
-                Write($"[{parteVisivel}]");
-                Thread.Sleep(200);  // Velocidade do letreiro
-            }
-
-            WriteLine("\nLetreiro finalizado. Pressione qualquer tecla para voltar ao menu.");
-            ReadKey();
-        }
-
-
-
-
-        static void DeslizaLetra()
-        {
-            
-        }
-
-        static void AcertaNomes()
-        {
-           
         }
 
     }
